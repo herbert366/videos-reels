@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>netflix</title>
+    <!-- <link rel="stylesheet" href="debug.css" /> -->
+    <link rel="stylesheet" href="video.css" />
+    <script src="videoSrt.js"></script>
+  </head>
+  <body>
+    <div class="video-container">
+      <video id="intro" muted>
+        <source
+          src="https://www.w3schools.com/html/mov_bbb.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <video id="cena" class="scale2" controls>
+        <source src="./video.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div id="fade"></div>
+    <div class="legenda">
+      <p class="en"></p>
+      <p class="pt"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
