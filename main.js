@@ -1,4 +1,3 @@
-// const axios = require("axios");
-// const fs = require("fs");
-const creatFiles = require("./functions");
-creatFiles(3512935);
+const getSubtitleMusic = require('./functions')
+
+getSubtitleMusic(3512935)
