@@ -11,6 +11,7 @@
     <script src="../traduçãoSubtitle.js"></script>
   </head>
   <body>
+    <div class="time">fdgdfgdfg</div>
     <div class="video-container">
       <!-- <video id="intro" muted>
         <source
@@ -19,6 +20,8 @@
         />
       </video> -->
       <iframe
+        id="iframe"
+        onload="iframeClick()"
         class="proxy_player"
         allow="autoplay; fullscreen; encrypted-media"
         frameborder="0"
@@ -26,7 +29,7 @@
         title="YouTube video player"
         width="40%"
         height="40%"
-        src="https://studiosolsolr-a.akamaihd.net/iframe_proxy_player_letras_endpoint.html?host=https%3A%2F%2Fwww.letras.mus.br&amp;api_player=Iframe&amp;player_vars=%7B%22autoplay%22%3A1%2C%22egm%22%3A0%2C%22iv_load_policy%22%3A3%2C%22showinfo%22%3A0%2C%22rel%22%3A0%2C%22enablejsapi%22%3A1%2C%22wmode%22%3A%22transparent%22%2C%22controls%22%3A0%2C%22id%22%3A%22player__pl_obj%22%2C%22type%22%3A%22Iframe%22%2C%22videoId%22%3A%228pxl7upp0Wo%22%7D&amp;video_id=5GJWxDKyk3A"
+        src="https://studiosolsolr-a.akamaihd.net/iframe_proxy_player_letras_endpoint.html?host=https%3A%2F%2Fwww.letras.mus.br&amp;api_player=Iframe&amp;player_vars=%7B%22autoplay%22%3A1%2C%22egm%22%3A0%2C%22iv_load_policy%22%3A3%2C%22showinfo%22%3A0%2C%22rel%22%3A0%2C%22enablejsapi%22%3A1%2C%22wmode%22%3A%22transparent%22%2C%22controls%22%3A0%2C%22id%22%3A%22player__pl_obj%22%2C%22type%22%3A%22Iframe%22%2C%22videoId%22%3A%228pxl7upp0Wo%22%7D&amp;video_id=U3ASj1L6_sY"
         data-id="0"
       ></iframe>
       <!-- <video id="cena" class="scale2" controls muted>

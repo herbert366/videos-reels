@@ -1,5 +1,6 @@
 const axios = require('axios')
 const fs = require('fs')
+const path = require('path')
 
 function joinLinkComId(id) {
   const urlCortada = 'https://www.letras.mus.br/api/v2/subtitle/'
@@ -7,15 +8,15 @@ function joinLinkComId(id) {
   return join
 }
 
-async function getLinkYoutube(id) {
+async function getLinkYoutube(id, num) {
   const funçãoDoLink = joinLinkComId(id)
   const response = await axios.get(funçãoDoLink)
-  const data = response.data[0]
+  const data = response.data[num]
   return data
 }
 
-async function createLinkApiWithYoutube(id) {
-  const data = await getLinkYoutube(id)
+async function createLinkApiWithYoutube(id, num) {
+  const data = await getLinkYoutube(id, num)
   const urlApi = joinLinkComId(id) + `${data}/`
   return {
     urlApi,
@@ -23,8 +24,8 @@ async function createLinkApiWithYoutube(id) {
   }
 }
 
-async function createFilesSubtitles(id) {
-  const { urlApi, youtubeId } = await createLinkApiWithYoutube(id)
+async function getSubtitleMusic(id, num) {
+  const { urlApi, youtubeId } = await createLinkApiWithYoutube(id, num)
   const getResponse = await axios.get(urlApi)
   const getSubtitles = getResponse.data
   fs.writeFileSync(
@@ -45,5 +46,14 @@ async function createFilesSubtitles(id) {
     './traduçãoSubtitle.js',
     'var subtitlePt = ' + getSubtitles.Translation.Subtitle
   )
+  const htmlStr = fs.readFileSync(
+    path.join(__dirname, './video local/index.html'),
+    'utf8'
+  )
+  fs.writeFileSync(
+    path.join(__dirname, './video local/index.html'),
+    htmlStr.replace(/video_id=.*?"/g, `video_id=${youtubeId}"`)
+  )
+  console.log({ num })
 }
-module.exports = createFilesSubtitles
+module.exports = getSubtitleMusic

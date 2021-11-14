@@ -1,13 +1,13 @@
-let time = -3
+let time = -10
 function getSubtitle(index) {
   return {
     pt: subtitlePt[index],
     en: subtitleEn[index],
   }
 }
-
 setInterval(() => {
   time += 500 / 1000
+  document.querySelector('.time').innerHTML = time
   if (time < 0) return
   const ptHtml = document.querySelector('.legenda > .pt')
   const enHtml = document.querySelector('.legenda > .en')

@@ -92,3 +92,12 @@ iframe {
 .show {
   opacity: 1;
 }
+
+.time {
+  z-index: 100000;
+  position: absolute;
+  /* left: 0; */
+  /* top: 0; */
+  font-size: 30px;
+  color: #fff;
+}
