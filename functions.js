@@ -24,7 +24,21 @@ async function createLinkApiWithYoutube(id, num) {
   }
 }
 
-async function getSubtitleMusic(id, num) {
+function putUrlVideoInHtml(youtubeId) {
+  const htmlStr = fs.readFileSync(
+    path.join(__dirname, './video local/index.html'),
+    'utf8'
+  )
+  fs.writeFileSync(
+    path.join(__dirname, './video local/index.html'),
+    htmlStr.replace(/video_id=.*?"/g, `video_id=${youtubeId}"`)
+  )
+}
+
+async function getSubtitleMusic(id, param) {
+  let num = typeof param === 'number' ? param : 0
+  num = param?.num === 'number' ? param.num : num
+
   const { urlApi, youtubeId } = await createLinkApiWithYoutube(id, num)
   const getResponse = await axios.get(urlApi)
   const getSubtitles = getResponse.data
@@ -38,22 +52,26 @@ async function getSubtitleMusic(id, num) {
       2
     )
   )
-  fs.writeFileSync(
-    './originalSubtitle.js',
-    'var subtitleEn = ' + getSubtitles.Original.Subtitle
-  )
-  fs.writeFileSync(
-    './traduçãoSubtitle.js',
-    'var subtitlePt = ' + getSubtitles.Translation.Subtitle
-  )
-  const htmlStr = fs.readFileSync(
-    path.join(__dirname, './video local/index.html'),
-    'utf8'
-  )
-  fs.writeFileSync(
-    path.join(__dirname, './video local/index.html'),
-    htmlStr.replace(/video_id=.*?"/g, `video_id=${youtubeId}"`)
-  )
+  if (!param?.json) {
+    fs.writeFileSync(
+      './originalSubtitle.js',
+      'var subtitleEn = ' + getSubtitles.Original.Subtitle
+    )
+    fs.writeFileSync(
+      './traduçãoSubtitle.js',
+      'var subtitlePt = ' + getSubtitles.Translation.Subtitle
+    )
+  } else {
+    fs.writeFileSync('./originalSubtitle.json', getSubtitles.Original.Subtitle)
+    fs.writeFileSync(
+      './traduçãoSubtitle.json',
+      getSubtitles.Translation.Subtitle
+    )
+  }
+
+  if (!param?.notHtml) putUrlVideoInHtml(youtubeId)
+
   console.log({ num })
 }
+
 module.exports = getSubtitleMusic
