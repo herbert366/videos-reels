@@ -27,12 +27,12 @@ const songs = [
     link: 'https://www.letras.mus.br/toni-braxton/5736/',
   },
   {
-    song_Name: 'Can't Hold Us',
+    song_Name: "Can't Hold Us",
     reels: 0000,
     id: 2495790,
     emAlta: false,
-    problem: false,
-    done: true,
+    problem: true,
+    done: false,
     link: 'https://www.letras.mus.br/macklemore/cant-hold-us/',
   },
   {
@@ -1038,7 +1038,7 @@ const songs = [
     reels: 0000,
     id: 2792830,
     emAlta: false,
-    done: false,
+    done: true,
     link: 'https://www.letras.mus.br/ariana-grande/dangerous-woman/',
   },
   {
@@ -1060,7 +1060,7 @@ const songs = [
   {
     song_Name: 'Happy',
     reels: 1000000,
-    id: 2532697,.
+    id: 2532697,
     problem: true,
     emAlta: false,
     done: false,

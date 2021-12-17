@@ -12,9 +12,3 @@ const AllCando = listDontDOne.filter(
 
 const as6DeHoje = _.sampleSize(AllCando, 6)
 console.log(as6DeHoje)
-
-// function filtrando(song) {
-//   return song.problem === false && song.song_Name !== 'default'
-// }
-
-// console.log(listDontDOne.filter(filtrando))
