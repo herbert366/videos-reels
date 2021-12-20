@@ -10,6 +10,7 @@ const array = [
   },
 ]
 console.log(array)
+console.log('-----------------------------------------')
 // put songs Datas in array
 
 function addToArray(songObject) {
