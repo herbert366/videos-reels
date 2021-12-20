@@ -9,31 +9,29 @@ const array = [
     link: '',
   },
 ]
-console.log(array)
-console.log('-----------------------------------------')
 // put songs Datas in array
 
 function addToArray(songObject) {
   if (!songObject.emAlta) {
-    emAlta = false
+    songObject.emAlta = false
   }
   if (!songObject.problem) {
-    problem = false
+    songObject.problem = false
   }
   if (!songObject.done) {
     songObject.done = false
   }
   if (!songObject.id) {
-    id = 0000
+    songObject.id = 0000
   }
   if (!songObject.reels) {
-    reels = 0000
+    songObject.reels = 0000
   }
   if (!songObject.link) {
-    link = ''
+    songObject.link = ''
   }
   if (!songObject.song_Name) {
-    console.log('song_Name is required')
+    console.log('Nem colocasse o nome da musica')
   }
   array.push({
     song_Name: songObject.song_Name,
